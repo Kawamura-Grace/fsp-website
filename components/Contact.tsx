@@ -81,22 +81,6 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-              <div>
-                <div
-                  className="font-sm text-[11px] tracking-[0.2em] uppercase mb-1.5"
-                  style={{ color: "#8B7B82" }}
-                >
-                  Phone
-                </div>
-                <div className="font-eb text-[18px] tracking-[0.04em]">
-                  <a
-                    href="tel:+81-90-7676-7405"
-                    className="contact-link"
-                  >
-                    +81 90-7676-7405
-                  </a>
-                </div>
-              </div>
             </div>
             <p
               className="font-sm text-[12px] italic leading-[1.9] mt-8"
