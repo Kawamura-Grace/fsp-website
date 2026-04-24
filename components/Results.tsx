@@ -77,12 +77,6 @@ export default function Results() {
           ))}
         </div>
 
-        <p
-          className="mt-10 text-center font-sm text-[12px] italic"
-          style={{ color: "#8B7B82" }}
-        >
-          ※ 過去在職時(大手洋菓子・ベーカリーグループ内)の実績より抜粋。詳細は NDA 締結後に個別にご説明します。
-        </p>
       </div>
     </section>
   );
