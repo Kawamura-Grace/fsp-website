@@ -88,7 +88,7 @@ export default function Contact() {
             >
               お急ぎの場合や、具体的な案件内容をすでにお持ちの方は、
               <br className="max-md:hidden" />
-              直接メール・電話でのご連絡をおすすめします。
+              直接メールでのご連絡をおすすめします。
             </p>
           </div>
 
