@@ -18,8 +18,39 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-8 max-sm:px-5 w-full">
-        <div className="font-c text-[13px] tracking-[0.55em] text-gold uppercase font-semibold mb-12 anim-fade-up-1">
-          FOOD &amp; SWEETS PARTNERS
+        {/* Logo A — Horizontal Wordmark */}
+        <div className="anim-fade-up-1 mb-14">
+          <div
+            className="font-eb font-medium tracking-[0.08em] leading-none"
+            style={{ color: "#F2E8DD" }}
+          >
+            <div className="text-[30px]">
+              Food{" "}
+              <span
+                className="font-eb italic font-normal"
+                style={{ color: "#D4A43A" }}
+              >
+                &amp;
+              </span>{" "}
+              Sweets Partners
+            </div>
+            <div className="flex items-center gap-3.5 mt-3">
+              <div
+                className="w-7 h-px opacity-40"
+                style={{ background: "#F2E8DD" }}
+              />
+              <div
+                className="font-c text-[10px] tracking-[0.5em] font-medium uppercase opacity-70"
+                style={{ color: "#F2E8DD" }}
+              >
+                Strategy for Food Brands
+              </div>
+              <div
+                className="w-7 h-px opacity-40"
+                style={{ background: "#F2E8DD" }}
+              />
+            </div>
+          </div>
         </div>
 
         <h1 className="font-sm text-[58px] max-md:text-[38px] max-sm:text-[30px] font-medium leading-[1.3] tracking-[0.04em] text-white mb-10 max-w-[920px] anim-fade-up-2">
