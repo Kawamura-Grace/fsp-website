@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://fsp.grace-foods.com/sitemap.xml
+Disallow: /
