@@ -61,6 +61,24 @@ export const ARTICLES: Article[] = [
     publishedAt: "2026-08-24",
     contentFile: "article-3.md",
   },
+  {
+    slug: "hokenjo-pre-consultation-guide",
+    title: "菓子製造業の許可申請で保健所に聞かれること・準備する書類",
+    description:
+      "保健所への事前相談では何を聞かれ、許可申請時にはどんな書類が必要になるのか。事前相談のポイントと申請書類の一般的な構成、早めに動くべき理由を整理します。",
+    category: "startup-procedures",
+    publishedAt: "2026-08-24",
+    contentFile: "article-4.md",
+  },
+  {
+    slug: "startup-schedule-planning",
+    title: "開業スケジュールの立て方：何ヶ月前から何を準備するか",
+    description:
+      "資金調達・物件と許認可・仕入先・採用・バックオフィスなど、複数のタスクが同時並行で進む開業準備。開業希望日から逆算して、何ヶ月前に何を始めるべきかを項目ごとに整理します。",
+    category: "startup-procedures",
+    publishedAt: "2026-08-24",
+    contentFile: "article-5.md",
+  },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "media");
