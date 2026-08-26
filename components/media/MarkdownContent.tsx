@@ -92,9 +92,23 @@ const components: Components = {
   ),
 };
 
-export default function MarkdownContent({ markdown }: { markdown: string }) {
+export default function MarkdownContent({
+  markdown,
+  isFirstBlock = true,
+}: {
+  markdown: string;
+  // 記事本文を途中（例：アフィリエイトリンクブロックの前後）で分割してレンダリングする場合、
+  // 先頭ブロック以外はfalseにする（見出しの上余白・区切り線を通常通り表示するため）
+  isFirstBlock?: boolean;
+}) {
   return (
-    <div className="media-prose [&>*:first-child]:mt-0 [&>*:first-child]:border-t-0 [&>*:first-child]:pt-0">
+    <div
+      className={
+        isFirstBlock
+          ? "media-prose [&>*:first-child]:mt-0 [&>*:first-child]:border-t-0 [&>*:first-child]:pt-0"
+          : "media-prose"
+      }
+    >
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
         {markdown}
       </ReactMarkdown>

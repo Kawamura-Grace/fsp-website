@@ -8,8 +8,13 @@ import {
   getArticleBySlug,
 } from "@/lib/media";
 import MarkdownContent from "@/components/media/MarkdownContent";
+import AffiliateLinkBlock from "@/components/media/AffiliateLinkBlock";
 
 const siteUrl = "https://fsp.grace-foods.com";
+
+// 記事本文中の {{AFFILIATE:xxx}} マーカーを検出し、その位置にAffiliateLinkBlockを差し込む。
+// マーカーが無い記事は従来通りMarkdownContent一本で描画される（他記事の表示は変更されない）
+const AFFILIATE_MARKER_RE = /\{\{AFFILIATE:([a-z0-9-]+)\}\}/;
 
 export async function generateStaticParams() {
   return ARTICLES.map((article) => ({ slug: article.slug }));
@@ -54,6 +59,14 @@ export default async function ArticlePage({
   const body = getArticleBody(article);
   const category = CATEGORIES[article.category];
   const url = `${siteUrl}/media/${article.slug}`;
+
+  const affiliateMatch = body.match(AFFILIATE_MARKER_RE);
+  const bodyBeforeAffiliate = affiliateMatch
+    ? body.slice(0, affiliateMatch.index)
+    : body;
+  const bodyAfterAffiliate = affiliateMatch
+    ? body.slice((affiliateMatch.index ?? 0) + affiliateMatch[0].length)
+    : "";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -116,7 +129,13 @@ export default async function ArticlePage({
         </div>
 
         {/* 本文 */}
-        <MarkdownContent markdown={body} />
+        <MarkdownContent markdown={bodyBeforeAffiliate} />
+        {affiliateMatch && (
+          <>
+            <AffiliateLinkBlock id={affiliateMatch[1]} />
+            <MarkdownContent markdown={bodyAfterAffiliate} isFirstBlock={false} />
+          </>
+        )}
 
         {/* アフィリエイト表示（サイト全体ルールに基づく注記） */}
         <p
