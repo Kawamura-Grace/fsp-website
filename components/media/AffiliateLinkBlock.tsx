@@ -34,7 +34,7 @@ export default function AffiliateLinkBlock({ id }: { id: string }) {
       style={{ borderColor: "#E5DDDF", background: "#FBF6EC" }}
     >
       <span
-        className="font-c text-[12px] tracking-[0.25em] uppercase font-bold text-berry inline-block mb-3"
+        className="font-sm text-[15.5px] font-bold text-berry inline-block mb-3"
         style={{ color: "#6D2E46" }}
       >
         【PR】
