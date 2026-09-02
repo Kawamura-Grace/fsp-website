@@ -22,6 +22,16 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink[]> = {
       imgSrc: "https://www16.a8.net/0.gif?a8mat=4BAEXI+DZOQK2+4JGQ+60WN6",
     },
   ],
+  // POSレジ（記事10: pos-register-selection-criteria）は2026-09-02時点で
+  // スマレジ3件が審査中・Square/Airレジ/クックビズは未申請のため、リンク未実装
+  // （決裁ログ 3c6ac4b0-e272-81bb「リンクなし先行公開→審査通過後差し替え」に準拠）。
+  // 審査通過後、A8管理画面から広告リンクコードを取得し、下記のように
+  // "pos-tablet" 等のキーでエントリを追加したうえで、
+  // content/media/article-7.md の該当箇所に {{AFFILIATE:pos-tablet}} マーカーを追加する。
+  // 注意：app/media/[slug]/page.tsx のマーカー検出は body.match()（1件のみ）のため、
+  // 記事内に複数のPOSリンクを差し込む場合はマーカー処理を複数件対応に拡張すること。
+  // 担当：shift-dev（POSレジ審査通過の連絡を受け次第、河村決裁を経て対応）
+  // "pos-tablet": [ { label: "...", href: "...", imgSrc: "..." } ],
 };
 
 export default function AffiliateLinkBlock({ id }: { id: string }) {
