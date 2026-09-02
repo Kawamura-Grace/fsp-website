@@ -79,6 +79,24 @@ export const ARTICLES: Article[] = [
     publishedAt: "2026-08-24",
     contentFile: "article-5.md",
   },
+  {
+    slug: "accounting-software-selection-guide",
+    title: "個人店におすすめの会計ソフトの選び方",
+    description:
+      "会計ソフト選びで見るべきは価格の安さではなく、青色申告特別控除65万円・インボイス制度・電子帳簿保存法への対応と、税理士との連携のしやすさ。個人店向けの選定基準を整理します。",
+    category: "back-office",
+    publishedAt: "2026-09-02",
+    contentFile: "article-6.md",
+  },
+  {
+    slug: "pos-register-selection-criteria",
+    title: "飲食店・菓子店のPOSレジ、選定基準の考え方",
+    description:
+      "決済手数料・会計ソフト連携・軽減税率対応・インボイス対応など、POSレジ選びで具体的にチェックすべき8つの基準を整理します。",
+    category: "back-office",
+    publishedAt: "2026-09-02",
+    contentFile: "article-7.md",
+  },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "media");
