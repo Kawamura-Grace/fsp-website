@@ -97,6 +97,19 @@ export const ARTICLES: Article[] = [
     publishedAt: "2026-09-02",
     contentFile: "article-7.md",
   },
+  {
+    // ロードマップ外の新規記事（記事21）。afb承認2件（03plus・BiZiMo）の配置先として
+    // 2026-09-03河村決裁で企画（決裁ログ 3d0ac4b0-e272-815e-a88e-d09bd423b8a2）。
+    // 河村赤入れ待ちのため publishedAt は仮値（このブランチはマージしない。
+    // 赤入れ完了後、確定日に更新してからマージ・公開する）
+    slug: "store-phone-line-and-tablet-selection",
+    title: "店舗の電話番号と店舗用端末の選び方",
+    description:
+      "開業準備で後回しにしがちな「店舗の電話番号」と「接客・会計用の端末」。固定電話回線か固定電話番号アプリか、汎用タブレット購入か法人向けレンタルかを、判断材料とともに整理します。",
+    category: "back-office",
+    publishedAt: "2026-09-03",
+    contentFile: "article-8.md",
+  },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "media");
