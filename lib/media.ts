@@ -100,8 +100,7 @@ export const ARTICLES: Article[] = [
   {
     // ロードマップ外の新規記事（記事21）。afb承認2件（03plus・BiZiMo）の配置先として
     // 2026-09-03河村決裁で企画（決裁ログ 3d0ac4b0-e272-815e-a88e-d09bd423b8a2）。
-    // 河村赤入れ待ちのため publishedAt は仮値（このブランチはマージしない。
-    // 赤入れ完了後、確定日に更新してからマージ・公開する）
+    // 河村赤入れ反映済み（2026-09-03）。publishedAtは公開日として確定。
     slug: "store-phone-line-and-tablet-selection",
     title: "店舗の電話番号と店舗用端末の選び方",
     description:
