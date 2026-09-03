@@ -32,6 +32,22 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink[]> = {
   // 記事内に複数のPOSリンクを差し込む場合はマーカー処理を複数件対応に拡張すること。
   // 担当：shift-dev（POSレジ審査通過の連絡を受け次第、河村決裁を経て対応）
   // "pos-tablet": [ { label: "...", href: "...", imgSrc: "..." } ],
+
+  // 記事8（ロードマップ外・新規記事21「店舗の電話番号と店舗用端末の選び方」）
+  // afb承認2件（決裁ログ 3d0ac4b0-e272-815e-a88e-d09bd423b8a2、2026-09-03）
+  // リンクコードはafb管理画面「広告原稿取得」＞テキスト原稿から取得（2026-09-03取得・改変禁止）
+  "phone-and-tablet-startup": [
+    {
+      label: "信用性アップ！固定電話をスマホで【03plus】",
+      href: "https://t.afi-b.com/visit.php?a=Z16404R-P5294388&p=J991735t",
+      imgSrc: "https://t.afi-b.com/lead/Z16404R/J991735t/P5294388",
+    },
+    {
+      label: "法人・店舗向けタブレット【BiZiMo】",
+      href: "https://t.afi-b.com/visit.php?a=r142984-M469801x&p=J991735t",
+      imgSrc: "https://t.afi-b.com/lead/r142984/J991735t/M469801x",
+    },
+  ],
 };
 
 export default function AffiliateLinkBlock({ id }: { id: string }) {
