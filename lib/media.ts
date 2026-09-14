@@ -109,6 +109,42 @@ export const ARTICLES: Article[] = [
     publishedAt: "2026-09-03",
     contentFile: "article-8.md",
   },
+  {
+    slug: "small-store-shift-management",
+    title: "小規模店舗のシフト管理、属人化させない仕組み",
+    description:
+      "小規模店舗のシフト管理を属人化させないため、前提条件の文書化→フロー固定→ツール導入という順序と、シフト作成に関わる法定労働時間・休憩・割増賃金のルールをあわせて整理します。",
+    category: "back-office",
+    publishedAt: "2026-09-14",
+    contentFile: "article-9.md",
+  },
+  {
+    slug: "post-opening-accounting-checklist",
+    title: "開業後に慌てないための経理の仕組み化チェックリスト",
+    description:
+      "開業直後は後回しになりがちな経理を、「開業直後」「日次」「月次」「年次」の4つのタイミングに分け、それぞれでやるべきことをチェックリスト形式で整理します。",
+    category: "back-office",
+    publishedAt: "2026-09-14",
+    contentFile: "article-10.md",
+  },
+  {
+    slug: "first-staff-hire-selection",
+    title: "菓子店・カフェのスタッフ採用、最初の1人をどう選ぶか",
+    description:
+      "菓子店・カフェの最初の1人採用で見るべきはスキルの高さではなく、基準がない状態で確認しながら動けるかどうか。募集時の労働条件明示など会社側が先に用意すべき点も整理します。",
+    category: "hiring",
+    publishedAt: "2026-09-14",
+    contentFile: "article-11.md",
+  },
+  {
+    slug: "food-industry-hiring-challenges",
+    title: "飲食業界の採用が難しい理由と、個人店にできる工夫",
+    description:
+      "飲食業界の採用難は公的統計にもはっきり表れる構造的な問題です。個人店に向いた工夫として、応募前の条件すり合わせ・育成の仕組み化・採用チャネルの絞り込みの3点を整理します。",
+    category: "hiring",
+    publishedAt: "2026-09-14",
+    contentFile: "article-12.md",
+  },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "media");
