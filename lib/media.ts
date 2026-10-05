@@ -145,6 +145,42 @@ export const ARTICLES: Article[] = [
     publishedAt: "2026-09-14",
     contentFile: "article-12.md",
   },
+  {
+    slug: "cost-management-postponed-risks",
+    title: "原価管理を後回しにすると起きること",
+    description:
+      "原価管理を後回しにした分は、値上げのタイミング・資金繰りの相談・利益改善の場面でまとめて跳ね返ってきます。後回しになりやすい理由と、最低限固定しておくべき仕組みを整理します。",
+    category: "back-office",
+    publishedAt: "2026-10-05",
+    contentFile: "article-13.md",
+  },
+  {
+    slug: "staff-retention-evaluation-training",
+    title: "定着率を上げるための評価・育成の考え方",
+    description:
+      "個人店が大手企業の等級制度を縮小して持ち込むと、たいてい運用が止まります。スキルマップ・昇給条件の文章化・振り返り頻度の固定という3点で考える、定着率向上のための評価・育成の仕組みを整理します。",
+    category: "hiring",
+    publishedAt: "2026-10-05",
+    contentFile: "article-14.md",
+  },
+  {
+    slug: "sole-proprietor-vs-corporation-bakery-startup",
+    title: "個人事業か法人か？菓子店開業の形態選びの考え方",
+    description:
+      "開業の形態は、最初の1〜2年の利益・雇用人数・契約相手で決めます。開業手続きと費用、社会保険・税金の違い、菓子店で特に注意したい営業許可の名義の扱いを整理します。",
+    category: "startup-procedures",
+    publishedAt: "2026-10-05",
+    contentFile: "article-15.md",
+  },
+  {
+    slug: "property-search-overlooked-conditions",
+    title: "物件探しで菓子店・カフェ経営者が見落としがちな条件",
+    description:
+      "内見では見えない条件こそ、物件探しで後悔しやすい点です。用途地域・保健所の施設基準・電気ガス給排水排気・消防・賃貸借契約の条件という、契約前に確認したい5点を公的資料に基づいて整理します。",
+    category: "startup-procedures",
+    publishedAt: "2026-10-05",
+    contentFile: "article-16.md",
+  },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "media");
