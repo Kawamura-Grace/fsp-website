@@ -1,12 +1,14 @@
 // FSPメディア記事内のアフィリエイトリンクブロック
 // - PR表記を本文と同程度に視認できる形でブロック冒頭に配置（サイト設計_v1.md §6準拠・グレーアウト不可）
-// - リンクはA8.net管理画面の広告リンク作成からコピーしたコードをそのまま使用（a8matパラメータ改変禁止）
+// - リンクはA8.net／afb／もしもアフィリエイトの管理画面からコピーしたコードをそのまま使用（URL・計測パラメータ改変禁止）
 // - 計測用1px画像は素の<img>のまま出力する（next/image化するとsrcが書き換わり計測されないため）
 
 type AffiliateLink = {
   label: string;
   href: string;
   imgSrc: string;
+  // もしもアフィリエイト素材のみ：ASP提供コードの追加属性（referrerpolicy・attributionsrc・lazy計測img）
+  moshimo?: boolean;
 };
 
 const AFFILIATE_LINKS: Record<string, AffiliateLink[]> = {
@@ -22,16 +24,22 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink[]> = {
       imgSrc: "https://www16.a8.net/0.gif?a8mat=4BAEXI+DZOQK2+4JGQ+60WN6",
     },
   ],
-  // POSレジ（記事10: pos-register-selection-criteria）は2026-09-02時点で
-  // スマレジ3件が審査中・Square/Airレジ/クックビズは未申請のため、リンク未実装
-  // （決裁ログ 3c6ac4b0-e272-81bb「リンクなし先行公開→審査通過後差し替え」に準拠）。
-  // 審査通過後、A8管理画面から広告リンクコードを取得し、下記のように
-  // "pos-tablet" 等のキーでエントリを追加したうえで、
-  // content/media/article-7.md の該当箇所に {{AFFILIATE:pos-tablet}} マーカーを追加する。
+  // POSレジ（記事7: pos-register-selection-criteria）
+  // Square：もしもアフィリエイト経由（2026-09-24提携承認・2026-09-25にp_id=1151を取得）。
+  // 出典：Drive「FSP/media_draft/アフィリリンク実装素材_20260826.md」追記 2026-09-25 節
+  //  （成果報酬型・アカウント作成／テキスト広告ID 17641）。URL・計測imgは改変禁止、リンク文言のみ自由。
+  // 「※アカウント作成」は素材の成果条件表記のためリンク文言の末尾に残す。
+  // スマレジはA8で2026-10-02に否認のためリンクなし。Airレジ・クックビズは未申請。
   // 注意：app/media/[slug]/page.tsx のマーカー検出は body.match()（1件のみ）のため、
   // 記事内に複数のPOSリンクを差し込む場合はマーカー処理を複数件対応に拡張すること。
-  // 担当：shift-dev（POSレジ審査通過の連絡を受け次第、河村決裁を経て対応）
-  // "pos-tablet": [ { label: "...", href: "...", imgSrc: "..." } ],
+  "pos-register": [
+    {
+      label: "Square(スクエア)の公式サイトを見る※アカウント作成",
+      href: "//af.moshimo.com/af/c/click?a_id=5815443&p_id=1151&pc_id=1733&pl_id=17641",
+      imgSrc: "//i.moshimo.com/af/i/impression?a_id=5815443&p_id=1151&pc_id=1733&pl_id=17641",
+      moshimo: true,
+    },
+  ],
 
   // 記事8（ロードマップ外・新規記事21「店舗の電話番号と店舗用端末の選び方」）
   // afb承認2件（決裁ログ 3d0ac4b0-e272-815e-a88e-d09bd423b8a2、2026-09-03）
@@ -71,6 +79,9 @@ export default function AffiliateLinkBlock({ id }: { id: string }) {
             <a
               href={link.href}
               rel="sponsored nofollow"
+              {...(link.moshimo
+                ? { referrerPolicy: "no-referrer-when-downgrade" as const, attributionsrc: "" }
+                : {})}
               className="underline underline-offset-4 decoration-[#D4A43A]/60 hover:decoration-[#D4A43A] text-berry transition-colors"
             >
               {link.label}
@@ -82,7 +93,8 @@ export default function AffiliateLinkBlock({ id }: { id: string }) {
               width={1}
               height={1}
               alt=""
-              style={{ border: 0 }}
+              style={link.moshimo ? { border: "none" } : { border: 0 }}
+              {...(link.moshimo ? { loading: "lazy" as const } : {})}
             />
           </li>
         ))}
