@@ -13,8 +13,9 @@ import AffiliateLinkBlock from "@/components/media/AffiliateLinkBlock";
 const siteUrl = "https://fsp.grace-foods.com";
 
 // 記事本文中の {{AFFILIATE:xxx}} マーカーを検出し、その位置にAffiliateLinkBlockを差し込む。
-// マーカーが無い記事は従来通りMarkdownContent一本で描画される（他記事の表示は変更されない）
-const AFFILIATE_MARKER_RE = /\{\{AFFILIATE:([a-z0-9-]+)\}\}/;
+// 1記事に複数のマーカーを置ける（記事3は会計ソフト節とPOSレジ節の2か所）。
+// マーカーが無い記事は従来通りMarkdownContent一本、1つの記事は従来と同じ「前半＋ブロック＋後半」で描画される
+const AFFILIATE_MARKER_RE = /\{\{AFFILIATE:([a-z0-9-]+)\}\}/g;
 
 export async function generateStaticParams() {
   return ARTICLES.map((article) => ({ slug: article.slug }));
@@ -60,13 +61,9 @@ export default async function ArticlePage({
   const category = CATEGORIES[article.category];
   const url = `${siteUrl}/media/${article.slug}`;
 
-  const affiliateMatch = body.match(AFFILIATE_MARKER_RE);
-  const bodyBeforeAffiliate = affiliateMatch
-    ? body.slice(0, affiliateMatch.index)
-    : body;
-  const bodyAfterAffiliate = affiliateMatch
-    ? body.slice((affiliateMatch.index ?? 0) + affiliateMatch[0].length)
-    : "";
+  // 本文をマーカー位置で分割する。segments = [本文, ブロックID, 本文, ブロックID, 本文, ...]
+  // （split に捕捉グループ付きの正規表現を渡すと、偶数番目が本文・奇数番目がマーカーのIDになる）
+  const segments = body.split(AFFILIATE_MARKER_RE);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -129,12 +126,16 @@ export default async function ArticlePage({
         </div>
 
         {/* 本文 */}
-        <MarkdownContent markdown={bodyBeforeAffiliate} />
-        {affiliateMatch && (
-          <>
-            <AffiliateLinkBlock id={affiliateMatch[1]} />
-            <MarkdownContent markdown={bodyAfterAffiliate} isFirstBlock={false} />
-          </>
+        {segments.map((segment, index) =>
+          index % 2 === 1 ? (
+            <AffiliateLinkBlock key={`affiliate-${index}`} id={segment} />
+          ) : (
+            <MarkdownContent
+              key={`body-${index}`}
+              markdown={segment}
+              isFirstBlock={index === 0}
+            />
+          )
         )}
 
         {/* アフィリエイト表示（サイト全体ルールに基づく注記） */}

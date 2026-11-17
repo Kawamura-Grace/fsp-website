@@ -30,6 +30,8 @@
 
 代表的なPOSレジサービスの例としては、SquareやAirレジ、スマレジなどがあります。選定基準をさらに詳しく整理した記事は[飲食店・菓子店のPOSレジ、選定基準の考え方](/media/pos-register-selection-criteria)をご覧ください。
 
+{{AFFILIATE:pos-register}}
+
 
 ## 優先度3：証憑(レシート・領収書)の管理ルールを決める
 
