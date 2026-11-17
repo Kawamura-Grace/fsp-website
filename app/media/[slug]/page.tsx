@@ -8,7 +8,9 @@ import {
   getArticleBySlug,
 } from "@/lib/media";
 import MarkdownContent from "@/components/media/MarkdownContent";
-import AffiliateLinkBlock from "@/components/media/AffiliateLinkBlock";
+import AffiliateLinkBlock, {
+  hasAffiliateLinks,
+} from "@/components/media/AffiliateLinkBlock";
 
 const siteUrl = "https://fsp.grace-foods.com";
 
@@ -65,6 +67,13 @@ export default async function ArticlePage({
   // （split に捕捉グループ付きの正規表現を渡すと、偶数番目が本文・奇数番目がマーカーのIDになる）
   const segments = body.split(AFFILIATE_MARKER_RE);
 
+  // 実際に表示されるアフィリエイトリンクがある記事か（奇数番目＝マーカーのID）
+  // ステマ規制（景品表示法の告示・2023年10月施行）の運用基準に合わせ、
+  // 該当記事は冒頭（タイトル直下）にPR表記を出し、末尾の注記も「含みます」と言い切る
+  const hasAffiliate = segments.some(
+    (segment, index) => index % 2 === 1 && hasAffiliateLinks(segment)
+  );
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -109,6 +118,19 @@ export default async function ArticlePage({
           {article.title}
         </h1>
 
+        {/* アフィリエイトリンクがある記事のみ：タイトル直下に広告である旨を表示（本文と同サイズ・グレーアウトしない） */}
+        {hasAffiliate && (
+          <p
+            className="font-sm text-[15.5px] leading-[1.9] text-ink-2 rounded-md border px-5 py-3 mb-8"
+            style={{ borderColor: "#E5DDDF", background: "#FBF6EC" }}
+          >
+            <span className="font-bold" style={{ color: "#6D2E46" }}>
+              【PR】
+            </span>
+            この記事にはアフィリエイト広告（PR）を含みます。
+          </p>
+        )}
+
         <div
           className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-8 mb-10 border-b font-sm text-[13px] text-ink-3"
           style={{ borderColor: "#E5DDDF" }}
@@ -143,7 +165,9 @@ export default async function ArticlePage({
           className="font-sm text-[12px] leading-[1.9] text-ink-3 mt-12 pt-8 border-t"
           style={{ borderColor: "#E5DDDF" }}
         >
-          本記事は将来的にアフィリエイト広告を含む場合があります。詳細は
+          {hasAffiliate
+            ? "本記事にはアフィリエイト広告（PR）を含みます。詳細は"
+            : "本記事は将来的にアフィリエイト広告を含む場合があります。詳細は"}
           <Link href="/media/disclaimer" className="underline underline-offset-4 decoration-[#D4A43A]/60 text-berry">
             免責事項
           </Link>
