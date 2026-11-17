@@ -181,6 +181,17 @@ export const ARTICLES: Article[] = [
     publishedAt: "2026-10-05",
     contentFile: "article-16.md",
   },
+  {
+    // 記事22（Squareの導入手順）。アフィリエイト（もしも・Square）の成約を生む柱記事。
+    // 2026-11-17河村決裁（「このまま公開してよい」）で公開。
+    slug: "square-setup-before-opening",
+    title: "菓子店・カフェが開業前にSquareを入れる手順｜洋菓子店で導入して分かったこと",
+    description:
+      "菓子店・カフェが開業前にSquare(スクエア)を導入する手順を、洋菓子店での実体験にもとづいて整理。導入の流れ、費用・手数料、審査の待ち時間、税率8%・10%の設定、ケーキ予約の受け方でつまずいた点まで書きます。",
+    category: "back-office",
+    publishedAt: "2026-11-17",
+    contentFile: "article-17.md",
+  },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "media");
