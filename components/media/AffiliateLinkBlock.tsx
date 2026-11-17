@@ -57,6 +57,12 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink[]> = {
   ],
 };
 
+// このIDに表示できるリンクがあるか（記事冒頭のPR表記を出すかどうかの判定に使う）
+export function hasAffiliateLinks(id: string): boolean {
+  const links = AFFILIATE_LINKS[id];
+  return !!links && links.length > 0;
+}
+
 export default function AffiliateLinkBlock({ id }: { id: string }) {
   const links = AFFILIATE_LINKS[id];
   if (!links || links.length === 0) return null;
