@@ -35,18 +35,35 @@ const components: Components = {
       {children}
     </a>
   ),
-  ul: ({ children }) => (
-    <ul className="list-disc marker:text-gold space-y-3 mb-6 pl-5">
-      {children}
-    </ul>
-  ),
+  // チェックリスト（- [ ]）は remark-gfm が contains-task-list / task-list-item を付ける。
+  // 黒丸とチェックボックスが二重に出ないよう、チェックリストのときは黒丸を出さない
+  ul: ({ children, className }) => {
+    const isTaskList = className?.includes("contains-task-list");
+    return (
+      <ul
+        className={
+          isTaskList
+            ? "list-none space-y-3 mb-6 pl-1"
+            : "list-disc marker:text-gold space-y-3 mb-6 pl-5"
+        }
+      >
+        {children}
+      </ul>
+    );
+  },
   ol: ({ children }) => (
     <ol className="list-decimal marker:text-gold marker:font-semibold space-y-3 mb-6 pl-5">
       {children}
     </ol>
   ),
-  li: ({ children }) => (
-    <li className="font-sm text-[15px] leading-[1.9] text-ink-2 pl-1">
+  li: ({ children, className }) => (
+    <li
+      className={
+        className?.includes("task-list-item")
+          ? "font-sm text-[15px] leading-[1.9] text-ink-2 [&>input]:mr-2 [&>input]:accent-[#6D2E46]"
+          : "font-sm text-[15px] leading-[1.9] text-ink-2 pl-1"
+      }
+    >
       {children}
     </li>
   ),
