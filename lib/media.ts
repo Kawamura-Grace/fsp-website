@@ -47,7 +47,7 @@ export const ARTICLES: Article[] = [
     slug: "patisserie-startup-funding-plan",
     title: "パティスリー開業の資金計画｜費用の分け方と融資の考え方",
     description:
-      "ケーキ屋（パティスリー）の開業資金・費用は、「いくら」という単一の数字ではなく、設備投資・運転資金・予備費の3項目で考えるのが基本。資金計画を立てる順番と、自己資金・融資のバランスの考え方を整理します。",
+      "パティスリーの開業資金・費用は、「いくら」という単一の数字ではなく、設備投資・運転資金・予備費の3項目で考えるのが基本。資金計画を立てる順番と、自己資金・融資のバランスの考え方を整理します。",
     category: "startup-procedures",
     publishedAt: "2026-08-24",
     contentFile: "article-2.md",
