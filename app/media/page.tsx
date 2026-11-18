@@ -18,6 +18,21 @@ export const metadata: Metadata = {
     siteName: "Food & Sweets Partners",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/og-media.png`,
+        width: 1200,
+        height: 630,
+        alt: "Food & Sweets Partners Media",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Media | Food & Sweets Partners",
+    description:
+      "菓子店・飲食店の開業と経営を、現場で手を動かしてきた人間の目線で解説するメディア。",
+    images: [`${siteUrl}/og-media.png`],
   },
 };
 
