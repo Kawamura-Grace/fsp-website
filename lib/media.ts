@@ -192,6 +192,17 @@ export const ARTICLES: Article[] = [
     publishedAt: "2026-11-17",
     contentFile: "article-17.md",
   },
+  {
+    // 記事23（Squareのケーキ予約の受け方）。記事22（導入の流れ）の予約の節を掘り下げる記事。
+    // 2026-11-18河村決裁（公開許可済み）で公開。
+    slug: "square-cake-reservation-setup",
+    title: "Squareでケーキの予約を受ける方法｜洋菓子店の設定と、つまずいたところ",
+    description:
+      "洋菓子店でSquareのケーキ予約を設定した記録。予約サイトの支払い、店頭・電話の予約の入れ方（注文予約と伝票を保存）、日ごとの受付上限の考え方を書きます。確認できなかった点も明記します。",
+    category: "back-office",
+    publishedAt: "2026-11-18",
+    contentFile: "article-18.md",
+  },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "media");
