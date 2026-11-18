@@ -176,6 +176,8 @@ Squareオンラインビジネスで予約サイトを作ると、商品の価�
 
 筆者の店では、店頭の前払い予約は、お客様にメールアドレスを聞いてレジスターで「注文予約」を入れることにしました。メールアドレスを教えていただけない場合は、前払いは受けず、「伝票を保存」で受けて、受け取りのときに会計します。
 
+予約サイトの設定と、店頭・電話で受けた予約の入れ方を、判断の順に整理した記事は[Squareでケーキの予約を受ける方法](/media/square-cake-reservation-setup)にあります。
+
 ## 導入のチェックリスト
 
 - [ ] アカウントを作り、有効になったことをメールで確認した
@@ -206,14 +208,14 @@ Squareの導入手順は、アカウント作成、端末、商品登録、税�
 ---
 
 ### 参照元
-- Square「料金」（対面・オンラインの決済手数料率・入金サイクル・ロイヤルティの料金）https://squareup.com/jp/ja/pricing（2026年11月17日確認）
-- Square「POSレジ 料金」（アプリの料金・端末の価格）https://squareup.com/jp/ja/point-of-sale/pricing（2026年11月17日確認）
-- Square「ハードウェア」（レジスター（第2世代）の価格・「他に端末を追加する必要はありません」・税込表記）https://squareup.com/jp/ja/hardware（2026年11月17日確認）
-- Square「オンラインストア プラン」（フリー・プラス・プレミアムの月額と決済手数料、予約注文・商品数量制限の対象プラン）https://squareup.com/jp/ja/online-store/plans（2026年11月18日確認）
-- Square「Squareアカウントを作成する」（準備するもの・手順・有効化までの日数。ページ記載の更新日2026年9月10日）https://squareup.com/jp/ja/townsquare/create-account（2026年11月17日確認）
-- Squareヘルプ「QRコード決済に申し込む」（対象ブランド・審査期間・写真）https://squareup.com/help/jp/ja/article/8370-apply-for-qr-code-payments（2026年11月17日確認）
-- Squareヘルプ「チームメンバーを追加・管理する」（メールまたは電話番号が必須・30日以内の承諾）https://squareup.com/help/jp/ja/article/8356-add-and-manage-team-members（2026年11月17日確認）
-- Square「決済端末のスタートガイド⑥ 返金処理のやり方」（返金時の決済手数料の扱い・交通系ICの例外）https://squareup.com/jp/ja/townsquare/kihon-no-ki-6（2026年11月17日確認）
+- Square「料金」（対面・オンラインの決済手数料率・入金サイクル・ロイヤルティの料金）<https://squareup.com/jp/ja/pricing>（2026年11月17日確認）
+- Square「POSレジ 料金」（アプリの料金・端末の価格）<https://squareup.com/jp/ja/point-of-sale/pricing>（2026年11月17日確認）
+- Square「ハードウェア」（レジスター（第2世代）の価格・「他に端末を追加する必要はありません」・税込表記）<https://squareup.com/jp/ja/hardware>（2026年11月17日確認）
+- Square「オンラインストア プラン」（フリー・プラス・プレミアムの月額と決済手数料、予約注文・商品数量制限の対象プラン）<https://squareup.com/jp/ja/online-store/plans>（2026年11月18日確認）
+- Square「Squareアカウントを作成する」（準備するもの・手順・有効化までの日数。ページ記載の更新日2026年9月10日）<https://squareup.com/jp/ja/townsquare/create-account>（2026年11月17日確認）
+- Squareヘルプ「QRコード決済に申し込む」（対象ブランド・審査期間・写真）<https://squareup.com/help/jp/ja/article/8370-apply-for-qr-code-payments>（2026年11月17日確認）
+- Squareヘルプ「チームメンバーを追加・管理する」（メールまたは電話番号が必須・30日以内の承諾）<https://squareup.com/help/jp/ja/article/8356-add-and-manage-team-members>（2026年11月17日確認）
+- Square「決済端末のスタートガイド⑥ 返金処理のやり方」（返金時の決済手数料の扱い・交通系ICの例外）<https://squareup.com/jp/ja/townsquare/kihon-no-ki-6>（2026年11月17日確認）
 - Squareヘルプ「保留会計」（伝票を保存する機能）https://squareup.com/help/jp/ja/article/5337-use-open-tickets-with-square
 
 ※ Squareは例として取り上げたサービスの1つであり、他社のレジより優れていると述べるものではありません。決済手数料・月額料金・画面の表記は改定されやすいため、必ずSquareの公式サイトで最新の内容をご確認のうえ、自店の業態・規模に合ったサービスをご選定ください。「筆者の店」の記述は、筆者が運営する洋菓子店での設定と確認の記録にもとづくもので、すべての店舗で同じ結果になることを保証するものではありません。「筆者の考え」と記した箇所は、一次情報で確認した内容ではありません。本記事にはSquareのアフィリエイトリンク（広告）が含まれています。
