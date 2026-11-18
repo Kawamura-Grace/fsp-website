@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: [`${siteUrl}/og-image.png`] },
   robots: { index: true, follow: true },
   alternates: { canonical: siteUrl },
   metadataBase: new URL(siteUrl),

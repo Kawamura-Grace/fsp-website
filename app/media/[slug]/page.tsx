@@ -14,6 +14,14 @@ import AffiliateLinkBlock, {
 
 const siteUrl = "https://fsp.grace-foods.com";
 
+// メディア共通のSNS共有画像（1200×630）。記事ごとの個別画像は無いため全記事で共通
+const OG_IMAGE = {
+  url: `${siteUrl}/og-media.png`,
+  width: 1200,
+  height: 630,
+  alt: "Food & Sweets Partners Media",
+};
+
 // 記事本文中の {{AFFILIATE:xxx}} マーカーを検出し、その位置にAffiliateLinkBlockを差し込む。
 // 1記事に複数のマーカーを置ける（記事3は会計ソフト節とPOSレジ節の2か所）。
 // マーカーが無い記事は従来通りMarkdownContent一本、1つの記事は従来と同じ「前半＋ブロック＋後半」で描画される
@@ -46,6 +54,13 @@ export async function generateMetadata({
       type: "article",
       publishedTime: article.publishedAt,
       authors: ["河村大輔"],
+      images: [OG_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description,
+      images: [OG_IMAGE.url],
     },
   };
 }
