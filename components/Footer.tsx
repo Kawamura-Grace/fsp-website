@@ -13,7 +13,7 @@ export default function Footer() {
         <nav className="flex justify-end mb-8">
           <Link
             href="/media"
-            className="font-c text-[11px] tracking-[0.5em] uppercase font-semibold"
+            className="font-c text-[14px] tracking-[0.3em] uppercase font-semibold hover:opacity-80 transition-opacity"
             style={{ color: "#D4A43A" }}
           >
             Media

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section
@@ -16,6 +18,19 @@ export default function Hero() {
             "radial-gradient(800px 400px at 75% 20%, rgba(109,46,70,0.38) 0%, transparent 60%), radial-gradient(600px 400px at 10% 90%, rgba(184,134,11,0.14) 0%, transparent 60%)",
         }}
       />
+
+      {/* ヘッダーナビ：メディアへの導線（モバイルでも右上に表示） */}
+      <nav className="absolute top-0 inset-x-0 z-20">
+        <div className="max-w-[1100px] mx-auto px-8 max-sm:px-5 h-[72px] flex items-center justify-end">
+          <Link
+            href="/media"
+            className="font-c text-[13px] tracking-[0.4em] uppercase font-semibold hover:opacity-80 transition-opacity"
+            style={{ color: "#D4A43A" }}
+          >
+            Media
+          </Link>
+        </div>
+      </nav>
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-8 max-sm:px-5 w-full">
         {/* Logo A — Horizontal Wordmark */}

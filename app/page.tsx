@@ -5,6 +5,7 @@ import Why from "@/components/Why";
 import Principal from "@/components/Principal";
 import Results from "@/components/Results";
 import Process from "@/components/Process";
+import MediaSection from "@/components/MediaSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Principal />
       <Results />
       <Process />
+      <MediaSection />
       <Contact />
       <Footer />
     </>
